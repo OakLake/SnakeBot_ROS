@@ -7,9 +7,9 @@ Experimenting with ROS Gazebo and Simulated Snake Robot
 
 
 ## Control Joints via rqt_gui
-'''
+```
 roslaunch snakebot wave_gazebo.launch
 rosrun rqt_gui rqt_gui
-'''
+```
 Add topic plugin in rqt_gui. 
 
