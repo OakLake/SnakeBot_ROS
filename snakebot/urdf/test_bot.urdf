@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<robot name="snakebot">
+
+  <link name="base_link">
+    <visual>
+     <geometry>
+        <cylinder length="0.6" radius="0.9"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+      <cylinder length="0.6" radius="0.9"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
+  </link>
+
+  <link name="link_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.8" radius="0.13"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.4"/>
+   </visual>
+    <collision>
+      <geometry>
+      <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <axis xyz= "0 1 0"/>
+    <origin xyz="0 0 0.6"/>
+    <limit effort="1000" velocity="30.0" lower="-0.45" upper="0.45" />
+  </joint>
+
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.3" radius="0.8"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.4"/>
+   </visual>
+    <collision>
+      <geometry>
+      <cylinder length="0.3" radius="0.8"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_2" type="fixed">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 0.6"/>
+
+  </joint>
+
+
+  <!-- ROS Control plugin for Gazebo -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/snakebot</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <!-- transmission -->
+  <transmission name="joint_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="motor1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="joint_1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+</robot>

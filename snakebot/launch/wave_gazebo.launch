@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="model" default="$(find snakebot)/urdf/snakebot.urdf"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+  <rosparam file="$(find snakebot)/config/config.yaml" command="load" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+ 
+  
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/snakebot" args="joint_1_position_controller joint_2_position_controller joint_3_position_controller joint_4_position_controller joint_5_position_controller joint_6_position_controller joint_7_position_controller joint_state_controller"/> 
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    <remap from="/joint_states" to="/snakebot/joint_states" />
+  </node>
+
+
+
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find snakebot)/urdf/snakebot.urdf -urdf -z 1 -model snakebot" />
+
+</launch>
+ 
