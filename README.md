@@ -4,7 +4,9 @@ Experimenting with ROS Gazebo and Simulated Snake Robot
 <p align="center">
   <img src="https://github.com/OakLake/SnakeBot_ROS/blob/master/GIFs/test_gait.gif">
 </p>
+
 ---------------------------
+
 ## Contents
 ### src
   - joint state publisher for rviz.
@@ -16,7 +18,9 @@ Experimenting with ROS Gazebo and Simulated Snake Robot
   - display.launch: display urdf in rviz with standard gui joint controls.
   - wave.launch: display urdf in rviz with sine wave control from src/snakebot_jointstate_publisher.cpp.
   - wave_gazebo: launch urdf in gazebo and initialise the necessary controllers.
+
 ---------------------------
+
 ## Control Joints via rqt_gui
 ```
 roslaunch snakebot wave_gazebo.launch
