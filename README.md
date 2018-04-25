@@ -32,3 +32,9 @@ Add topic plugin in rqt_gui as seen in following gif, then change the expression
   <img src="https://github.com/OakLake/SnakeBot_ROS/blob/master/GIFs/rqt_gui.gif">
 </p>
 
+
+---------------------------
+
+## Resources
+- Gazebo ROS control: http://gazebosim.org/tutorials/?tut=ros_control
+
