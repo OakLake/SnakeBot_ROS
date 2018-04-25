@@ -29,6 +29,6 @@ rosrun rqt_gui rqt_gui
 Add topic plugin in rqt_gui as seen in following gif, then change the expression to change the joint value, finally check the box on the left to publish.
 
 <p align="center">
-  <img src="https://github.com/OakLake/SnakeBot_ROS/blob/master/GIFs/rqt_gif.gif">
+  <img src="https://github.com/OakLake/SnakeBot_ROS/blob/master/GIFs/rqt_gui.gif">
 </p>
 
