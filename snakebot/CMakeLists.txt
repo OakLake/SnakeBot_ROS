@@ -125,6 +125,10 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(snakebot_jointstate_publisher src/snakebot_jointstate_publisher.cpp)
 target_link_libraries(snakebot_jointstate_publisher ${catkin_LIBRARIES})
 
+include_directories(include ${catkin_INCLUDE_DIRS})
+add_executable(snakebot_joint_1_publisher src/snakebot_joint_1_publisher.cpp)
+target_link_libraries(snakebot_joint_1_publisher ${catkin_LIBRARIES})
+
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
