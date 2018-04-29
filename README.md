@@ -10,6 +10,9 @@ Experimenting with ROS Gazebo and Simulated Snake Robot
 ## Contents
 ### src
   - joint state publisher for rviz.
+  - joint (#1) controller publisher for gazebo control. (snakebot_joint_1_publisher.cpp).
+  ```rosrun snakebot snakebot_joint_1_publisher.cpp```
+  
 ### URDF
   - snake urdf with gazebo plugin and transmissions for gazebo control.
 ### config
