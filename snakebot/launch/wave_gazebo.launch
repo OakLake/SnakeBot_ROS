@@ -2,6 +2,8 @@
 <launch>
 
   <arg name="model" default="$(find snakebot)/urdf/snakebot.urdf"/>
+  <arg name="rvizconfig" default="$(find climod)/rviz/urdf.rviz" />
+
   <!--param name="phase_shift" type="double" value="2.5" /-->
   <rosparam command="load" file="$(find snakebot)/config/snakebot_params.yaml"/>
 
@@ -27,5 +29,6 @@
 
 
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find snakebot)/urdf/snakebot.urdf -urdf -z 1 -model snakebot" />
-
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  
 </launch>
